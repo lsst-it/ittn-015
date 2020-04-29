@@ -51,6 +51,10 @@
    This project integrate the wireless infrastructure from Vera Rubin Observatory with NOIRLabs.
 
 .. Add content here.
+Introduction 
+============
+This is the introduction
+
 .. Do not include the document title (it's automatically added from metadata.yaml).
 
 .. .. rubric:: References
