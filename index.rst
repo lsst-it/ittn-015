@@ -52,12 +52,12 @@
 
 .. Add content here.
 
-1. Introduction:
-================
+Introduction:
+=============
 To satisfy NOIRLab's wifi network integration on new Rubin base facilities building, we required to accomplish L2 and L3 communication between Rubin's network and NOIRLab's CTIO and NOIRLab's Gemini networks. Both NOIRLab's projects presented different challenges depending on their internal policies and wireless network setups. The following documentation is meant to explain how integration was accomplished and by which methods.
 
-1.1. Scope:
------------
+Scope:
+------
 - Explain how NOIRLab's CTIO and Gemini South wireless networks were integrated on Rubin's cisco wireless controller
 
 - Show how communication flows when NOIRLab's CTIO and Gemini South staff access to their respectively wireless networks
@@ -66,29 +66,29 @@ To satisfy NOIRLab's wifi network integration on new Rubin base facilities build
 
 - This document focused only on Rubin's base facilities located in La Serena, Chile.
 
-1.2. Document Overview:
------------------------
+Document Overview:
+------------------
 The purpose of this document is to show how L2 and L3 communication was accomplished to provide wireless access services to both projects with their particular policies and setups. No mission-critical or sensitive information is meant to be exposed to this document meaning that no IP addresses or passwords will be disclosed.
 
 For more detailed information on how integration was accomplished, please visit Rubin's Jira epic ticket https://jira.lsstcorp.org/browse/ITP-22 where you will find a list of activities with detailed information, testing, and configurations.
 
-1.3. Related Documentation:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Related Documentation:
+^^^^^^^^^^^^^^^^^^^^^^
 
 - Wi-Fi Infrastructure High-Level Design HLD - IT South Confluence Page
 - LSE-78 LSST Observatory Network Design
 - LSE-309 Summit to Base ITC Design
 
-2. Design:
-==========
+Design:
+=======
 
 Per decision base on project requirements, the Tiger Team (2015/2016 period) chooses Cisco Systems as the vendor for all the LAN network infrastructure, including Wi-Fi, from which its Wireless Lan Controller (WLC) and Lightweight Access Points (AP) ecosystem was the specific technical solution chosen for the project.
 
 On a high-level, the Cisco WLC solution provides central management for all the APs in the network, including wireless settings such as channels, power budget, interference threshold, user authentication, etc... This is implemented by loading a lightweight version of the AireOS software on the APs, which connects back to the WLC using the Control and Provisioning for Wireless Access Points (CAPWAP) protocol.
 
 
-2.1. FlexConnect Mode:
-----------------------
+FlexConnect Mode:
+-----------------
 
 FlexConnect mode (previously known as Hybrid Remote Edge Access Point or H-REAP) is a wireless solution for branch office and remote office deployments. It enables customers to configure and control access points in a branch or remote office from the corporate office through a wide area network (WAN) link without deploying a controller in each office. The FlexConnect access points can switch client data traffic locally and perform client authentication locally when their connection to the controller is lost. When they are connected to the controller, they can also send traffic back to the controller. In the connected mode, the FlexConnect access point can also perform local authentication.
 
@@ -100,8 +100,8 @@ When a client associates to a FlexConnect access point, the access point sends a
 
 **Important:** All Rubin base facilities' access points were configured in FlexConnect mode.
 
-2.2. NOIRLab CTIO Wireless Networks:
-------------------------------------
+NOIRLab CTIO Wireless Networks:
+-------------------------------
 
 NOIRLab CTIO provides two different wireless networks. Corporative wireless network access, which allows access to internal services and resources; and a guest wireless network access, which provides Internet access only. Both WLANs are configured for FlexConnect mode, local switching, and central authentication.
 
@@ -109,19 +109,19 @@ CTIO VLANs are injected from CTIO core switch into Rubin's access switches. Rubi
 
 For wireless network access requests, refer to http://www.ctio.noao.edu/noao/node/add/network-connection for self-service registration. You can also send an email to ciss-helpdesk@ctio.noao.edu or create a Jira ticket on the CISS Jira platform. Guest credentials are managed by NOIRLab's IT Ops team and published on Rubin base facilities areas.
 
-2.2.1. CTIO Corp Wireless Network:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CTIO Corp Wireless Network:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - SSID: newN0a0s
 - VLAN: 7 (on Core CTIO SBF)   
 
 
-2.2.2. CTIO Guest Wireless Network:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CTIO Guest Wireless Network:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - SSID: PublicWifi
 - VLAN: 98
   
-2.3. NOIRLab Gemini South Wireless Networks:
---------------------------------------------
+NOIRLab Gemini South Wireless Networks:
+---------------------------------------
 
 NOIRLab Gemini South provides two different wireless networks. Corporative wireless network access, which allows access to internal services and resources; and a guest wireless network access, which provides Internet access only. Both WLANs are configured for FlexConnect mode, local switching, and central authentication.
 
@@ -131,31 +131,31 @@ Gemini VLANs are injected from Gemini's core switch into CTIO's core switch, and
 
 For wireless network access requests, please contact NOIRLab's IT OPS team.
 
-2.3.1. Gemini South Corporative Wireless Network
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Gemini South Corporative Wireless Network:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - SSID: GemWifi
 - VLAN: 77
 
 
-2.3.2. Gemini South Guest Wireless Network
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Gemini South Guest Wireless Network:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - SSID: GemVisitor
 - VLAN: 13
 
 
-2.4. NOIRLab Wireless Integration Diagram
------------------------------------------
+NOIRLab Wireless Integration Diagram:
+-------------------------------------
 
 .. figure:: /_static/integration-diagram.jpg
     :name: integration-diagram
-        :width: 400 px
+        :width: 500 px
 
 
-3. Appendix
------------
+Appendix:
+---------
 
-3.1. Acronyms
-^^^^^^^^^^^^^
+Acronyms:
+^^^^^^^^^
 
 =============      ===============================================================
 Term/Acronym       Meaning
