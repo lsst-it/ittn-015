@@ -144,18 +144,18 @@ Gemini South Guest Wireless Network:
 
 
 NOIRLab Wireless Integration Diagram:
--------------------------------------
+=====================================
 
 .. figure:: /_static/integration-diagram.jpg
     :name: integration-diagram
-        :width: 500 px
+        :width: 400 px
 
 
 Appendix:
----------
+=========
 
 Acronyms:
-^^^^^^^^^
+---------
 
 =============      ===============================================================
 Term/Acronym       Meaning
